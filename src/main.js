@@ -1,4 +1,5 @@
 const shop = document.getElementById("shop");
+const cartAmount = document.getElementById("cartAmount");
 
 let cartItems = [];
 const previousItems = localStorage.getItem("cart");
@@ -66,7 +67,6 @@ function increment(id) {
   let selectedItem = id;
   let value = Number(selectedItem.textContent);
   value += 1;
-  selectedItem.textContent = value;
 
   const existingItem = cartItems.find((item) => item.id === selectedItem.id);
   console.log(existingItem);
@@ -77,14 +77,19 @@ function increment(id) {
     existingItem.value = value;
   }
 
+  selectedItem.textContent = value;
   localStorage.setItem("cart", JSON.stringify(cartItems));
+
+  const totalItems = cartItems.reduce((totalValue, currentItem) => {
+    return totalValue + currentItem.value;
+  }, 0);
+  cartAmount.textContent = totalItems;
 }
 
 const decrement = (id) => {
   let selectedItem = id;
   let value = Number(selectedItem.textContent);
   if (value !== 0) value -= 1;
-  selectedItem.textContent = value;
 
   cartItems.find((item) => {
     if (item.id === selectedItem.id) {
@@ -94,5 +99,11 @@ const decrement = (id) => {
 
   cartItems = cartItems.filter((item) => item.value !== 0);
 
+  selectedItem.textContent = value;
   localStorage.setItem("cart", JSON.stringify(cartItems));
+
+  const totalItems = cartItems.reduce((totalValue, currentItem) => {
+    return totalValue + currentItem.value;
+  }, 0);
+  cartAmount.textContent = totalItems;
 };
