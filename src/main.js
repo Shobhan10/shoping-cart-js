@@ -81,8 +81,18 @@ function increment(id) {
 }
 
 const decrement = (id) => {
-  let value = Number(id.textContent);
-  value -= 1;
-  if (value < 0) value = 0;
-  id.textContent = value;
+  let selectedItem = id;
+  let value = Number(selectedItem.textContent);
+  if (value !== 0) value -= 1;
+  selectedItem.textContent = value;
+
+  cartItems.find((item) => {
+    if (item.id === selectedItem.id) {
+      item.value = value;
+    }
+  });
+
+  cartItems = cartItems.filter((item) => item.value !== 0);
+
+  localStorage.setItem("cart", JSON.stringify(cartItems));
 };
