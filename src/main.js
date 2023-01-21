@@ -69,7 +69,6 @@ function increment(id) {
   value += 1;
 
   const existingItem = cartItems.find((item) => item.id === selectedItem.id);
-  console.log(existingItem);
 
   if (!existingItem) {
     cartItems.push({ id: selectedItem.id, value });
@@ -77,13 +76,7 @@ function increment(id) {
     existingItem.value = value;
   }
 
-  selectedItem.textContent = value;
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-
-  const totalItems = cartItems.reduce((totalValue, currentItem) => {
-    return totalValue + currentItem.value;
-  }, 0);
-  cartAmount.textContent = totalItems;
+  update(selectedItem, value);
 }
 
 const decrement = (id) => {
@@ -99,6 +92,10 @@ const decrement = (id) => {
 
   cartItems = cartItems.filter((item) => item.value !== 0);
 
+  update(selectedItem, value);
+};
+
+function update(selectedItem, value) {
   selectedItem.textContent = value;
   localStorage.setItem("cart", JSON.stringify(cartItems));
 
@@ -106,4 +103,4 @@ const decrement = (id) => {
     return totalValue + currentItem.value;
   }, 0);
   cartAmount.textContent = totalItems;
-};
+}
