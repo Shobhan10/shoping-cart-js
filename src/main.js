@@ -1,15 +1,10 @@
 const shop = document.getElementById("shop");
 const cartAmount = document.getElementById("cartAmount");
 
-let cartItems = [];
-const previousItems = localStorage.getItem("cart");
-if (!previousItems) {
-  cartItems = [];
-} else {
-  cartItems = JSON.parse(previousItems);
-}
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
 generateItems();
+addToCart();
 
 function generateItems() {
   shop.innerHTML = shopItemsData
@@ -27,9 +22,9 @@ function generateItems() {
                 <h2>$ ${price}</h2>
                 <div class="buttons">
                   <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                    <div id=${id} class="quantity">${
-        cartItem ? cartItem.value : 0
-      }</div>
+                    <div id=${id} class="quantity">
+                      ${cartItem ? cartItem.value : 0}
+                    </div>
                   <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                 </div>
               </div>
@@ -99,6 +94,10 @@ function update(selectedItem, value) {
   selectedItem.textContent = value;
   localStorage.setItem("cart", JSON.stringify(cartItems));
 
+  addToCart();
+}
+
+function addToCart() {
   const totalItems = cartItems.reduce((totalValue, currentItem) => {
     return totalValue + currentItem.value;
   }, 0);
