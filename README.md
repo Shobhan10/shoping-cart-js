@@ -24,4 +24,4 @@ Hi 👋 I am Shobhan Sundar Goutam. This is a Shopping Cart app where user can s
 
 [![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shobhan-sundar-goutam/)
 <br />
-[![image](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://www.linkedin.com/in/shobhan-sundar-goutam/)
+[![image](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/shobhantwts)
