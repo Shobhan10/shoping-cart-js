@@ -18,6 +18,10 @@ Hi 👋 I am Shobhan Sundar Goutam. This is a Shopping Cart app where user can s
 
 ### Demo
 
+
+https://user-images.githubusercontent.com/81035407/213935327-221587ea-83e4-4e9f-87a8-4ae7d63809ea.mp4
+
+
 ---
 
 ### Socials
