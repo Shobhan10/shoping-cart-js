@@ -61,7 +61,7 @@ function generateBody() {
       .join("");
 
     label.innerHTML = `
-            <h2>Total Bill : ${totalBill} </h2>
+            <h2>Total Bill :$ ${totalBill} </h2>
             <button class="checkout">Checkout</button>
             <button onclick="clearCart()" class="removeAll">Clear Cart</button>
         `;
